@@ -1,0 +1,58 @@
+<{if $category.cid }>
+	<{include file="db:plzxoo_header_category.html"}>
+<{else}>
+	<{include file="db:plzxoo_header_nocategory.html"}>
+<{/if}>
+
+<div align='center'><{$listController.navi}></div>
+
+<table class='outer'>
+	<tr class='head'>
+		<td width='20%'>
+			<{$smarty.const._MD_PLZXOO_LANG_INPUT_DATE}>
+			<br />
+			<{$smarty.const._MD_PLZXOO_LANG_MODIFIED_DATE}>
+		</td>
+		<td>
+			<{$smarty.const._MD_PLZXOO_LANG_SUBJECT}>
+		</td>
+		<td width='10%' align='center'>
+			<{$smarty.const._MD_PLZXOO_LANG_PRIORITY}>
+			<br />
+			<{$smarty.const._MD_PLZXOO_LANG_QUESTION_POSTER}>
+		</td>
+		<td width='15%' align='center'>
+			<{$smarty.const._MD_PLZXOO_LANG_CATEGORY}>
+		</td>
+		<td width='15%' align='right'>
+			<{$smarty.const._MD_PLZXOO_LANG_STATUS}>
+		</td>
+	</tr>
+<{foreach item=i from=$questions}>
+	<tr class='<{cycle values="odd,even"}>'>
+		<td>
+			<{$i.input_date_formatted}>
+			<br />
+			(<{$i.modified_date_formatted}>)
+		</td>
+		<td>
+			<a href="index.php?action=detail&amp;qid=<{$i.qid}>"><{$i.subject}></a>
+		</td>
+		<td align='center'>
+			<{$i.priority}><br/>
+			<a href="<{$smarty.const.XOOPS_URL}>/userinfo.php?uid=<{$i.uid}>"><{$i.user.uname}><a/>
+		</td>
+		<td align='center'>
+			<a href="index.php?cid=<{$i.cid}>"><{$i.category.name}></a>
+		</td>
+		<td align='right'>
+			<{$i.status_str}><br/>
+			<{$i.size_str}>
+		</td>
+	</tr>
+<{/foreach}>
+</table>
+
+<div align='center'><{$listController.navi}></div>
+
+<{include file='db:system_notification_select.html'}>

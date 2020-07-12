@@ -1,0 +1,209 @@
+[xlang:en]
+
+-=v1.02alt --> v1.03alt=-
+* added language files
+** ja_utf8
+** portuguesebr (thx leco1)
+
+-=v1.01alt --> v1.02alt=-
+* fixed typos causes fatal with PHP5.2
+
+-=v1.00alt --> v1.01alt=-
+* fixed answer indexing
+* fixed displaying search result with context
+* fixed mysql.sql for newer MySQL (removed default from text fields)
+
+-=v0.99alt --> v1.00alt=- (update the module)
+* modified xoops_pagetitle assigning
+* modified d3forum comment integration reference
+
+-=v0.98alt --> v0.99alt=-
+* added d3forum comment integration natively
+
+-=v0.97alt --> v0.98alt=-
+* added context display for XOOPS search module
+* added approval system
+* added plugin for waiting module
+* added an admin-only notification as "waiting approval"
+* fixed a type in user's list view of notifications
+
+-=v0.96alt --> v0.97alt=-
+* added a config 'questions per page in list views'
+* fixed some minor bugs
+* changed answer's comment from varchar(255) to text
+
+-=v0.95alt --> v0.96alt=- (update the module)
+* added a type of notify "question modifications"
+* added a config questioner will be set notify in posted answers
+* added a config answerer will be set notify in modification of the question
+* fixed new installation fails
+* added weight into category
+* fixed fatal error with missing inputs
+* fixed the isolation of notifications with removing category or question
+
+-=v0.94alt --> v0.95alt=- (update the module)
+* added modified columns into tables of question and answer
+* fixed editing in textarea (thx biroron)
+* added order into main list view
+* added order into blocks as block's option
+* fixed missing commitment (^^;
+* fixed deleting categories
+
+-=v0.93alt --> v0.94alt=- (update the module)
+* changed renderer from mojaLE to XoopsTpl
+* added answers list block
+
+-=v0.92alt --> v0.93alt=-
+* added 3 type of notifications
+
+-=v0.91alt --> v0.92alt=-
+* fixed fatal error in guest's detail view (thx biroron)
+
+-=v0.90alt --> v0.91alt=- (update the module)
+* fixed mysql.sql
+* added initialization of the category
+* added table indexes
+* modified compatibilities with PHP5
+* fixed include_path problem
+* modified compatibilities with XOOPS2.2.x
+* modified some templates
+* removed strftime() entirely
+
+-=v0.20alt --> v0.90(RC)alt=- (update this module essentially!)
+* RC release as my alternative version :-)
+* hierarchy of categories
+* ask to the category
+* breadcrumb
+* search in bodies of answers also
+* extraction
+* two extra block options (status & category)
+* block duplication
+* admin can edit status directly
+* modified point display
+* etc.
+
+-=v0.10 --> v0.20alt=-
+* starting alternative (by GIJOE)
+* plzXoo's point -> user's posts
+* points setting
+* changed timing of assigning points
+* added a list block
+* mymenu
+* myblocksadmin
+* mytplsadmin
+* modified perm admin
+* english language files
+* added a perm of answering myself
+* etc.
+
+
+[/xlang:en]
+[xlang:ja]
+
+-=v1.02alt --> v1.03alt=-
+* 言語ファイル追加
+** ja_utf8
+** portuguesebr (thx leco1)
+
+-=v1.01alt --> v1.02alt=-
+* PHP5.2でfatalが出るtypoを修正
+
+-=v1.00alt --> v1.01alt=-
+* 回答検索処理がおかしかったのを修正
+* コンテキスト表示処理がおかしかったのを修正
+* MySQLのtextフィールドのdefault値を削除
+
+-=v0.99alt --> v1.00alt=- (要モジュールアップデート)
+* xoops_pagetitle をアサインするようにした
+* コメント統合で、もう少し詳細な情報を参照できるようにした
+
+-=v0.98alt --> v0.99alt=-
+* d3forumのコメント統合にNative対応（回答へのコメント）
+
+-=v0.97alt --> v0.98alt=-
+* XOOPS検索の本文表示対応
+* 質問に対して承認制追加（今まで通り自動登録が希望ならパーミッション設定で「質問が自動的に承認される」にチェックを入れること）
+* waitingプラグイン作成
+* 管理者専用イベント通知追加（新規承認待ち）
+* イベント通知一覧でのURLがバグっていたのを潰した
+
+-=v0.96alt --> v0.97alt=-
+* １ページあたりの表示質問数の設定追加
+* 細かなバグ潰し
+* コメントをvarchar(255)からtextに変更
+
+-=v0.95alt --> v0.96alt=- （モジュールアップデート必須！）
+* 質問変更についての通知イベント追加
+* 質問者に自動的に回答通知ONとなる設定
+* 回答者に自動的に質問更新通知ONとなる設定
+* 新規インストールできなかったバグをFix
+* カテゴリにweight新設
+* 必要項目未入力時にfatal errorになっていたバグをfix
+* カテゴリ・質問削除時にnotificationが残るバグの修正
+
+-=v0.94alt --> v0.95alt=- （モジュールアップデート必須！）
+* 更新日時カラムの導入(questionおよびanswerテーブル)
+* textareaの編集がおかしかったバグを修正 (thx biroron)
+* 質問一覧画面のソート方法追加
+* 各ブロックオプションにソート方法追加
+* （コミット忘れてました）
+* カテゴリー削除処理の修正
+
+-=v0.93alt --> v0.94alt=- （モジュールアップデート必須！）
+* 公開側画面を全面的にXoopsTpl利用に変更
+* 回答一覧ブロックの追加
+
+-=v0.92alt --> v0.93alt=-
+* 3パターンのイベント通知を実装
+
+-=v0.91alt --> v0.92alt=-
+* ゲストだと詳細が見られないバグを修正 (thx biroron)
+* ドキュメントをちょっと追加
+
+-=v0.90alt --> v0.91alt=- （モジュールアップデート必須！）
+* mysql.sql の記述忘れを修正
+* 初期状態でカテゴリーが存在するように変更
+* テーブルインデックスを追加
+* PHP5でいろいろ挙動がおかしかったのを修正
+* include_path問題を修正
+* 本家版XOOPS2.2での挙動がおかしかったのを修正
+* 一部テンプレートミスを修正
+* strftime() 依存部分を排除
+
+-=v0.20alt --> v0.90alt=- （モジュールアップデート必須！）
+* AlternativeとしてのRC版（要するに「もう機能は足さないよ」という宣言:-)）
+* カテゴリーの階層構造実装
+* カテゴリ内質問
+* パンくず
+* 回答内容も検索にヒット
+* 簡単な絞り込み
+* ブロックオプション追加（ステータスとカテゴリー絞り込み）
+* ブロック複製
+* 管理者用はステータスを直接いじれる
+* ポイント表示をそれっぽく
+* その他もろもろfix
+
+
+-=v0.10 --> v0.20alt=-
+* 勝手な改変版 (by GIJOE)
+* ポイントを投稿数に反映する機能
+* ポイントの自由な設定機能
+* ポイント付与のタイミングを、クローズする時だけに限定
+* 受付中回答一覧ブロック
+* mymenu
+* myblocksadmin
+* mytplsadmin
+* 権限設定画面を変更
+* 英語ファイル
+* 自作自演回答についての権限追加
+* その他もろもろ
+
+
+-=v0.10RC --> v0.10=-
+* ポイントを 20 点与えると妥当性検査を通過しなかった typo を修正 (thanks to hama!)
+* plzxoo_detail.htmlで「回答者」に「質問者」の定数を書いていたミスを修正 (thanks to hama!)
+* plzxoo_detail.htmlで回答日時に質問日時の変数を書いていたミスを修正 (thanks to hama!)
+* answer オブジェクトの権限判定で else 判定漏れがあったのを修正 (thanks to hama!)
+* ステータスの「質問受付中」を「回答受付中」に変更 (thanks to Ryuji!)
+* メッセージへの回答権限がない場合は、回答へのリンクを出さないように修正
+[/xlang:ja]

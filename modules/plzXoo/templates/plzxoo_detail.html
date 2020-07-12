@@ -1,0 +1,114 @@
+<{include file="db:plzxoo_header_category.html"}>
+
+<div align='right'>
+	<{$smarty.const._MD_PLZXOO_LANG_MODIFIED_DATE}>:<{$question.modified_date_formatted}>
+</div>
+
+<table class='outer'>
+	<tr class='head'>
+		<td colspan='2'>
+			<{$smarty.const._MD_PLZXOO_LANG_QUESTION}>
+			<{if $question.enable_edit}>
+				[ <a href="index.php?action=editques&amp;qid=<{$question.qid}>"><{$smarty.const._MD_PLZXOO_LANG_EDIT}></a> ]
+			<{/if}>
+			<{if $question.enable_delete}>
+				[ <a href="index.php?action=question_del&amp;qid=<{$question.qid}>"><{$smarty.const._MD_PLZXOO_LANG_DELETE}></a> ]
+			<{/if}>
+		</td>
+	</tr>
+	<tr>
+		<td class='even' width='20%'>No.<{$question.qid}></td>
+		<td class='odd'>
+			<b><{$smarty.const._MD_PLZXOO_LANG_QUESTION}>:<{$question.subject}></b>
+		</td>
+	</tr>
+	<tr>
+		<td  class='even' width='20%'><{$smarty.const._MD_PLZXOO_LANG_QUESTION_POSTER}>:<a href="<{$smarty.const.XOOPS_URL}>/userinfo.php?uid=<{$question.uid}>"><{$question.user.uname}></a></td>
+		<td class='odd' rowspan='3'>
+			<{$question.body}>
+		</td>
+	</tr>
+	<tr>
+		<td class='even' width='20%'>
+			<{$question.input_date_formatted}>
+			<br />
+			<strong><{$question.status_str}></strong>
+		</td>
+	</tr>
+	<tr>
+		<td class='even' width='20%'><a href="index.php?cid=<{$question.cid}>"><{$question.category.name}></a></td>
+	</tr>
+</table>
+
+<p>
+<{if $question.status==1}>
+	<{if $question.uid==$xoops_userid }>
+		[ <a href="index.php?action=close&amp;qid=<{$question.qid}>"><{$smarty.const._MD_PLZXOO_MESSAGE_CLOSE_THIS_QUESTION}></a> ]
+	<{/if}>
+	<{if $xoops_userid && $enable_post_answer }>
+		[ <a href="index.php?action=answer&amp;qid=<{$question.qid}>"><{$smarty.const._MD_PLZXOO_MESSAGE_ANSWER_THIS_QUESTION}></a> ]
+	<{/if}>
+<{/if}>
+</p>
+
+<{foreach item=answer from=$answers}>
+<p>
+<table class='outer'>
+	<tr class='head'>
+		<td colspan='2'>
+			<{$smarty.const._MD_PLZXOO_LANG_ANSWER}>
+			<{if $answer.enable_edit}>
+				[ <a href="index.php?action=answer&amp;aid=<{$answer.aid}>&amp;qid=<{$answer.qid}>"><{$smarty.const._MD_PLZXOO_LANG_EDIT}></a> ]
+			<{/if}>
+			<{if $answer.enable_delete}>
+				[ <a href="index.php?action=answer_del&amp;aid=<{$answer.aid}>"><{$smarty.const._MD_PLZXOO_LANG_DELETE}></a> ]
+			<{/if}>
+		</td>
+	</tr>
+	<tr>
+		<td class='even' width='20%'><{$smarty.const._MD_PLZXOO_LANG_ANSWER_POSTER}>:<a href="<{$smarty.const.XOOPS_URL}>/userinfo.php?uid=<{$answer.uid}>"><{$answer.user.uname}></a></td>
+		<td class='odd' rowspan='2'>
+			<{$answer.body}>
+		</td>
+	</tr>
+	<tr class='even'>
+		<td width='20%'>
+			<{$answer.input_date_formatted}>
+			<{if $answer.input_date < $answer.modified_date}>
+				(<{$answer.modified_date_formatted}>)
+			<{/if}>
+		</td>
+	</tr>
+	<{if $answer.comment}>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_RESPONSE}></td>
+		<td class='odd'><{$answer.comment}></td>
+	</tr>
+	<{/if}>
+	<{if $answer.point}>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_POINT}></td>
+		<td class='odd'><{$answer.point_decorated}></td>
+	</tr>
+	<{/if}>
+</table>
+
+<{if $question.uid==$xoops_userid }>
+	[ <a href="index.php?action=response&amp;aid=<{$answer.aid}>">
+		<{if $answer.comment}>
+			<{$smarty.const._MD_PLZXOO_LANG_EDIT_RESPONSE}>
+		<{else}>
+			<{$smarty.const._MD_PLZXOO_LANG_NEW_RESPONSE}>
+		<{/if}>
+	</a> ]
+<{/if}>
+
+<!-- d3forum comment integration -->
+<{if $mod_config.comment_dirname && $mod_config.comment_forum_id}>
+	<{d3forum_comment dirname=$mod_config.comment_dirname forum_id=$mod_config.comment_forum_id class="PlzxooD3commentAnswer" id=$answer.aid no_form=1 link_to_form=$smarty.const._MD_PLZXOO_LANG_NEW_COMMENT}>
+<{/if}>
+
+</p>
+<{/foreach}>
+
+<{include file='db:system_notification_select.html'}>

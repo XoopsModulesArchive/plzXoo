@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<permission-config>
+	<permission name="post_question" desc="_MD_A_PLZXOO_PERMDESC_POST_QUESTION" />
+	<permission name="post_question_auto_approve" desc="_MD_A_PLZXOO_PERMDESC_POST_QUESTION_AUTO_APPROVE" />
+	<permission name="post_answer" desc="_MD_A_PLZXOO_PERMDESC_POST_ANSWER" />
+	<permission name="post_answer_myself" desc="_MD_A_PLZXOO_PERMDESC_POST_ANSWER_MYSELF" />
+	<permission name="view_detail" desc="_MD_A_PLZXOO_PERMDESC_VIEW_DETAIL" />
+	<permission name="edit_my_question" desc="_MD_A_PLZXOO_PERMDESC_EDIT_MY_QUESTION" />
+	<permission name="edit_other_question" desc="_MD_A_PLZXOO_PERMDESC_EDIT_OTHER_QUESTION" />
+	<permission name="edit_my_answer" desc="_MD_A_PLZXOO_PERMDESC_EDIT_MY_ANSWER" />
+	<permission name="edit_other_answer" desc="_MD_A_PLZXOO_PERMDESC_EDIT_OTHER_ANSWER" />
+	<permission name="edit_myposts_answer" desc="_MD_A_PLZXOO_PERMDESC_EDIT_MYPOSTS_ANSWER" />
+	<permission name="delete_my_question" desc="_MD_A_PLZXOO_PERMDESC_DELETE_MY_QUESTION" />
+	<permission name="delete_other_question" desc="_MD_A_PLZXOO_PERMDESC_DELETE_OTHER_QUESTION" />
+	<permission name="delete_my_answer" desc="_MD_A_PLZXOO_PERMDESC_DELETE_MY_ANSWER" />
+	<permission name="delete_other_answer" desc="_MD_A_PLZXOO_PERMDESC_DELETE_OTHER_ANSWER" />
+	<permission name="delete_myposts_answer" desc="_MD_A_PLZXOO_PERMDESC_DELETE_MYPOSTS_ANSWER" />
+</permission-config>

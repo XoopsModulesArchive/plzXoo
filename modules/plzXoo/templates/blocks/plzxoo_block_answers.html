@@ -1,0 +1,16 @@
+<table class="outer">
+	<tr>
+		<th align='left'><{$smarty.const._MB_PLZXOO_ANSWER_INPUT_DATE}></th>
+		<th><{$smarty.const._MB_PLZXOO_ANSWER_UNAME}></th>
+		<th align='left'><{$smarty.const._MB_PLZXOO_SUBJECT}></th>
+		<th><{$smarty.const._MB_PLZXOO_CATEGORY_NAME}></th>
+	</th>
+	<{foreach item=answer from=$block.answers}>
+		<tr>
+			<td class="odd"><{$answer.input_date_formatted}></td>
+			<td class="odd" align="center"><{$answer.answer_uname}></td>
+			<td class="odd"><a href="<{$xoops_url}>/modules/plzXoo/index.php?action=detail&qid=<{$answer.qid}>"><{$answer.question_subject}></a></td>
+			<td class="odd" align="center"><a href="<{$xoops_url}>/modules/plzXoo/index.php?cid=<{$answer.cid}>"><{$answer.category_name}></a></td>
+		</tr>
+	<{/foreach }>
+</table>

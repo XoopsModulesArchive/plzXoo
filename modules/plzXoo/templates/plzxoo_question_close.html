@@ -1,0 +1,91 @@
+<{if $is_error }>
+    <{$error_html}>
+<{/if}>
+
+<{* BREADCRUMB *}>
+<p>
+<a href="<{$xoops_url}>/"><{$smarty.const._MD_PLZXOO_BRCR_HOME}></a>
+&gt;&gt; 
+<a href="index.php"><{$smarty.const._MD_PLZXOO_LANG_PLZXOO}></a>
+<{foreach item=parent from=$category.parents}>
+	<{foreach item=title key=pid from=$parent}>
+		&gt;&gt; <a href="index.php?cid=<{$pid}>"><{$smarty.const._MD_PLZXOO_BRCR_CATEGORY}><{$title|escape}></a>
+	<{/foreach}>
+<{/foreach}>
+		&gt;&gt; <a href="?action=detail&amp;qid=<{$question.qid}>"><{$question.subject}></a>
+		&gt;&gt; <{$smarty.const._MD_PLZXOO_MESSAGE_CLOSE_THIS_QUESTION}>
+</p>
+
+<h2 align='center'>
+	<{$smarty.const._MD_PLZXOO_MESSAGE_CLOSE_QUESTION_CONFIRM}>
+</h2>
+
+<form method='post'>
+	<table class='outer'>
+		<tr class='head'>
+			<td colspan='2'>
+				<{$smarty.const._MD_PLZXOO_LANG_QUESTION}>
+			</td>
+		</tr>
+		<tr class='odd'>
+			<td width='20%'>
+				No.<{$question.qid}>
+			</td>
+			<td>
+				<b><{$smarty.const._MD_PLZXOO_LANG_QUESTION}>:<{$question.subject}></b>
+			</td>
+		</tr>
+		<tr class='even'>
+			<td width='20%'>
+				<{$smarty.const._MD_PLZXOO_LANG_QUESTION_POSTER}>:<a href="<{$xoops_url}>/userinfo.php?uid=<{$question.uid}>"><{$question.user.uname}></a></td>
+			<td rowspan='2'>
+				<{$question.body}>
+			</td>
+		</tr>
+		<tr class='odd'>
+			<td width='20%'>
+				<{$question.input_date_formatted}>
+			</td>
+		</tr>
+	</table>
+
+	<{foreach from=$answers item=answer}>
+
+		<table class='outer' style='margin-top:8px;margin-left:8px;'>
+			<tr class='head'>
+				<td colspan='2'>
+					<{$smarty.const._MD_PLZXOO_LANG_ANSWER}>
+				</td>
+			</tr>
+			<tr>
+				<td class='even' width='20%'>
+					<{$smarty.const._MD_PLZXOO_LANG_ANSWER_POSTER}>:<a href="<{$xoops_url}>/userinfo.php?uid=<{$answer.uid}>"><{$answer.user.uname}></a>
+				</td>
+				<td class='odd' rowspan='3'>
+					<{$answer.body}>
+				</td>
+			</tr>
+			<tr class='even'>
+				<td width='20%'>
+					<{$answer.input_date_formatted}>
+				</td>
+			</tr>
+			<tr class='even'>
+				<td width='20%'>
+					<{$smarty.const._MD_PLZXOO_LANG_POINT_TO_THIS}>
+					<br />
+					<select name='points[<{$answer.aid}>]'>
+						<{$point_options}>
+					</select>
+				</td>
+			</tr>
+		</table>
+
+	<{/foreach}>
+
+	<div align='center'>
+		<{$hidden_ticket}>
+		<input type='submit' value='<{$smarty.const._MD_PLZXOO_LANG_EXECUTE}>' onclick='return confirm("<{$smarty.const._MD_PLZXOO_MESSAGE_IS_POINT_OK}>");' />
+		<input type='button' class='formButton' name='back' id='back' value='<{$smarty.const._MD_PLZXOO_LANG_GO_BACK}>' onclick="javascript:history.go(-1);" />
+	</div>
+</form>

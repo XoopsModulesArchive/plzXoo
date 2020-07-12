@@ -1,0 +1,97 @@
+<{if $is_error }>
+    <{$error_html}>
+<{/if}>
+
+<{* BREADCRUMB *}>
+<p>
+<a href="<{$xoops_url}>/"><{$smarty.const._MD_PLZXOO_BRCR_HOME}></a>
+&gt;&gt; 
+<a href="index.php"><{$smarty.const._MD_PLZXOO_LANG_PLZXOO}></a>
+</p>
+
+<h1 align='center'>
+	<{if $question.qid}>
+		<{$smarty.const._MD_PLZXOO_LANG_TITLE_EDIT_QUESTION}>
+	<{else}>
+		<{$smarty.const._MD_PLZXOO_LANG_TITLE_NEW_QUESTION}>
+	<{/if}>
+</h1>
+
+<form name='editquestion' id='editquestion' action='' method='post' onsubmit='return xoopsFormValidate_editquestion();'>
+	<{$hidden_ticket}>
+	<input type='hidden' name='qid' id='qid' value='<{$question.qid}>' />
+	<table width='100%' class='outer' cellspacing='1'>
+		<tr>
+			<th colspan='2'>
+				<{$smarty.const._MD_PLZXOO_LANG_QUESTION}>
+			</th>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_QUESTION_POSTER}>
+			</td>
+			<td class='even'>
+				<a href="<{$smarty.const.XOOPS_URL}>/userinfo.php?uid=<{$question.uid}>"><{$question.user.uname}></a>
+			</td>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_SUBJECT}>
+			</td>
+			<td class='even'>
+				<input type='text' name='subject' id='subject' size='64' maxlength='255' value='<{$question.subject}>' />
+			</td>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_BODY}>
+			</td>
+			<td class='even'>
+				<{* <{xoopsdhtmltarea name='body' rows=10 cols=50 value=$question.body}> *}>
+				<textarea name='body' id='body' rows='10' cols='50'><{$question.body}></textarea>
+			</td>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_CATEGORY}>
+			</td>
+			<td class='even'>
+				<{$select_cid}>
+			</td>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_PRIORITY}>
+			</td>
+			<td class='even'>
+				<{$select_priority}>
+			</td>
+		</tr>
+
+		<{if $select_status }>
+
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_STATUS}>
+			</td>
+			<td class='even'>
+				<{$select_status}>
+			</td>
+		</tr>
+
+		<{/if}>
+
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_CONTROL}>
+			</td>
+			<td class='even'>
+				<input type='submit' class='formButton' name='submit' id='submit' value='<{$smarty.const._MD_PLZXOO_LANG_SUBMIT}>' />
+				&nbsp;
+				<input type='reset' class='formButton' name='reset' id='reset' value='<{$smarty.const._MD_PLZXOO_LANG_RESET}>' />
+				&nbsp;
+				<input type='button' class='formButton' name='back' id='back' value='<{$smarty.const._MD_PLZXOO_LANG_GO_BACK}>' onclick="javascript:history.go(-1);" />
+			</td>
+		</tr>
+	</table>
+</form>

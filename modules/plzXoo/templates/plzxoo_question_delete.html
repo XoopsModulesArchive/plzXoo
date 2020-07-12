@@ -1,0 +1,52 @@
+<{* BREADCRUMB *}>
+<p>
+<a href="<{$xoops_url}>/"><{$smarty.const._MD_PLZXOO_BRCR_HOME}></a>
+&gt;&gt; 
+<a href="index.php"><{$smarty.const._MD_PLZXOO_LANG_PLZXOO}></a>
+<{foreach item=parent from=$category.parents}>
+	<{foreach item=title key=pid from=$parent}>
+		&gt;&gt; <a href="index.php?cid=<{$pid}>"><{$smarty.const._MD_PLZXOO_BRCR_CATEGORY}><{$title|escape}></a>
+	<{/foreach}>
+<{/foreach}>
+&gt;&gt; <a href="?action=detail&amp;qid=<{$question.qid}>"><{$question.subject}></a>
+&gt;&gt; <{$smarty.const._MD_PLZXOO_LANG_DELETE_CONFIRM}>
+</p>
+
+
+<h2 align="center"><{$smarty.const._MD_PLZXOO_LANG_DELETE_CONFIRM}></h2>
+
+<form method='post'>
+<{$hidden_ticket}>
+<table class='outer'>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_QID}></td>
+		<td class='odd'><{$question.qid}></td>
+	</tr>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_SUBJECT}></td>
+		<td class='odd'><{$question.subject}></td>
+	</tr>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_BODY}></td>
+		<td class='odd'><{$question.body}></td>
+	</tr>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_QUESTION_POSTER}></td>
+		<td class='odd'><{$question.user.uname}></td>
+	</tr>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_CATEGORY}></td>
+		<td class='odd'><{$question.category.name}></td>
+	</tr>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_SIZE}></td>
+		<td class='odd'><{$question.size}></td>
+	</tr>
+	<tr>
+		<td class='head'><{$smarty.const._MD_PLZXOO_LANG_CONTROL}></td>
+		<td class='odd'>
+			<input type="submit" value="<{$smarty.const._MD_PLZXOO_LANG_EXECUTE}>">
+		</td>
+	</tr>
+</table>
+</form>

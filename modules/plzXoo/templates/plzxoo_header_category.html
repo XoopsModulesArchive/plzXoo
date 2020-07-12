@@ -1,0 +1,53 @@
+<{* BREADCRUMB *}>
+
+<p>
+<a href="<{$xoops_url}>/"><{$smarty.const._MD_PLZXOO_BRCR_HOME}></a>
+&gt;&gt; 
+<a href="index.php"><{$smarty.const._MD_PLZXOO_LANG_PLZXOO}></a>
+<{foreach item=parent from=$category.parents}>
+	<{foreach item=title key=pid from=$parent}>
+		&gt;&gt; <a href="index.php?cid=<{$pid}>"><{$smarty.const._MD_PLZXOO_BRCR_CATEGORY}><{$title|escape}></a>
+	<{/foreach}>
+<{/foreach}>
+<{if $question.subject}>
+	&gt;&gt; <{$question.subject}>
+<{/if}>
+</p>
+
+
+<{* TITLE & CATEGORY_TITLE *}>
+
+<h1 align='center'>
+	<{$smarty.const._MD_PLZXOO_LANG_PLZXOO}>
+	<br />
+	<{$smarty.const._MD_PLZXOO_LANG_CATEGORY}>:<{$category.name}>
+</h1>
+
+
+<{* CATEGORY_DESCRIPTION & SUBCATEGORIES *}>
+
+<{if $is_detail}>
+<{else}>
+	<p>
+		<{$category.description}>
+	</p>
+
+	<{foreach item=child from=$category.children}>
+		<{foreach item=title key=cid from=$child}>
+			<div class="plzxoo_subcategories" style="float:left; margin:2px;">
+				<a href="index.php?cid=<{$cid}>"><img src="images/folder16.gif" border="0"alt="folder16" /><{$title|escape}></a> &nbsp;
+			</div>
+		<{/foreach}>
+	<{/foreach}>
+	<hr style='clear:left;display:block;' />
+
+<{/if}>
+
+
+<{* LINK TO POST *}>
+
+<{if $enable_post_question }>
+	<p>
+		[ <a href="index.php?action=editques&amp;cid=<{$category.cid}>"><{$smarty.const._MD_PLZXOO_LANG_POST_QUESTION_CID}></a> ]
+	</p>
+<{/if}>

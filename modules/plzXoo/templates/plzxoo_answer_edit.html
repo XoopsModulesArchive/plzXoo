@@ -1,0 +1,63 @@
+<{if $is_error }>
+    <{$error_html}>
+<{/if}>
+
+<{* BREADCRUMB *}>
+<p>
+<a href="<{$xoops_url}>/"><{$smarty.const._MD_PLZXOO_BRCR_HOME}></a>
+&gt;&gt; 
+<a href="index.php"><{$smarty.const._MD_PLZXOO_LANG_PLZXOO}></a>
+<{foreach item=parent from=$category.parents}>
+	<{foreach item=title key=pid from=$parent}>
+		&gt;&gt; <a href="index.php?cid=<{$pid}>"><{$smarty.const._MD_PLZXOO_BRCR_CATEGORY}><{$title|escape}></a>
+	<{/foreach}>
+<{/foreach}>
+		&gt;&gt; <a href="?action=detail&amp;qid=<{$question.qid}>"><{$question.subject}></a>
+		&gt;&gt; <{$smarty.const._MD_PLZXOO_LANG_ANSWER}>
+</p>
+
+
+<h2><{$question.subject}></h2>
+
+<p><{$question.body}></p>
+
+<h1 align='center'>
+	<{if $answer.aid}>
+		<{$smarty.const._MD_PLZXOO_LANG_TITLE_EDIT_ANSWER}>
+	<{else}>
+		<{$smarty.const._MD_PLZXOO_LANG_TITLE_NEW_ANSWER}>
+	<{/if}>
+</h1>
+
+<form name='editanswer' id='editanswer' action='' method='post' onsubmit='return xoopsFormValidate_editanswer();'>
+	<{$hidden_ticket}>
+	<input type='hidden' name='aid' id='aid' value='<{$answer.aid}>' />
+	<table width='100%' class='outer' cellspacing='1'>
+		<tr>
+			<th colspan='2'>
+				<{$smarty.const._MD_PLZXOO_LANG_ANSWER}>
+			</th>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_ANSWER_BODY}>
+			</td>
+			<td class='even'>
+				<{* <{xoopsdhtmltarea name='body' rows=10 cols=50 value=$answer.body}> *}>
+				<textarea name='body' id='body' rows='10' cols='50'><{$answer.body}></textarea>
+			</td>
+		</tr>
+		<tr valign='top' align='left'>
+			<td class='head'>
+				<{$smarty.const._MD_PLZXOO_LANG_CONTROL}>
+			</td>
+			<td class='even'>
+				<input type='submit' class='formButton' name='submit' id='submit' value='<{$smarty.const._MD_PLZXOO_LANG_SUBMIT}>' />
+				&nbsp;
+				<input type='reset' class='formButton' name='reset' id='reset' value='<{$smarty.const._MD_PLZXOO_LANG_RESET}>' />
+				&nbsp;
+				<input type='button' class='formButton' name='back' id='back' value='<{$smarty.const._MD_PLZXOO_LANG_GO_BACK}>' onclick="javascript:history.go(-1);" />
+			</td>
+		</tr>
+	</table>
+</form>

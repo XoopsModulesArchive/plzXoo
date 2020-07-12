@@ -1,0 +1,42 @@
+<{* BREADCRUMB *}>
+
+<a href="<{$xoops_url}>/"><{$smarty.const._MD_PLZXOO_BRCR_HOME}></a>
+&gt;&gt; 
+<a href="index.php"><{$smarty.const._MD_PLZXOO_LANG_PLZXOO}></a>
+<{if $searchtxt4disp}>
+&gt;&gt; 
+<{$smarty.const._MD_PLZXOO_LANG_RESULT_EXTRACTION}>
+<{/if}>
+
+
+
+<{* TITLE & CATEGORY_TITLE *}>
+
+<h1 align='center'>
+	<{$smarty.const._MD_PLZXOO_LANG_PLZXOO}>
+</h1>
+
+
+<{* TOP CATEGORIES *}>
+
+<{foreach item=child from=$category.children}>
+	<{foreach item=title key=cid from=$child}>
+		<div class="plzxoo_subcategories" style="float:left; margin:2px;">
+			<a href="index.php?cid=<{$cid}>"><img src="images/folder16.gif" border="0" alt="folder16" /><{$title|escape}></a> &nbsp;
+		</div>
+	<{/foreach}>
+<{/foreach}>
+<hr style='clear:left;display:block;' />
+
+
+<{* EXTRACTION FORM AND LINK TO POST *}>
+
+<form action='index.php' method='get' id='plzxoo_top_extraction'>
+	<label for="filter_txt"><{$smarty.const._MD_PLZXOO_LANG_LABEL_EXTRACTION}></label>
+	<input type="text" name="txt" value="<{$searchtxt4disp}>" id="filter_txt" />
+	<input type="submit" value="<{$smarty.const._MD_PLZXOO_LANG_GO_EXTRACTION}>" />
+	&nbsp;
+	<{if $enable_post_question }>
+		[ <a href="index.php?action=editques"><{$smarty.const._MD_PLZXOO_LANG_POST_QUESTION}></a> ]
+	<{/if}>
+</form>

@@ -1,0 +1,20 @@
+<table class="outer">
+	<tr>
+		<th align='left'><{$smarty.const._MB_PLZXOO_INPUT_DATE}></th>
+		<th align='left'><{$smarty.const._MB_PLZXOO_SUBJECT}></th>
+		<th><{$smarty.const._MB_PLZXOO_UNAME}></th>
+		<th><{$smarty.const._MB_PLZXOO_CATEGORY_NAME}></th>
+		<th><{$smarty.const._MB_PLZXOO_ANSWER_NUM}></th>
+		<th><{$smarty.const._MB_PLZXOO_LATEST_ANSWER}></th>
+	</th>
+	<{foreach item=question from=$block.questions}>
+		<tr>
+			<td class="odd"><{$question.input_date_formatted}></td>
+			<td class="odd"><a href="<{$xoops_url}>/modules/plzXoo/index.php?action=detail&qid=<{$question.qid}>"><{$question.subject}></a></td>
+			<td class="odd" align="center"><{$question.uname}></td>
+			<td class="odd" align="center"><a href="<{$xoops_url}>/modules/plzXoo/index.php?cid=<{$question.cid}>"><{$question.category_name}></a></td>
+			<td class="odd" align="center"><{$question.answer_num}></td>
+			<td class="odd" align="center"><{$question.answer_date_formatted}></td>
+		</tr>
+	<{/foreach }>
+</table>
